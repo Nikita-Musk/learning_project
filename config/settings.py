@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # 'students', # новое созданное приложение
     'main',
+    'materials',
 
 ]
 

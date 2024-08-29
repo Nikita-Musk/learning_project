@@ -1,12 +1,11 @@
-{% extends 'main/base.html'%}
-
+{% extends 'main/base.html' %}
 {% block content %}
 <div class="col-md-4">
     <div class="card mb-4 box-shadow">
         <div class="card-body">
             <p class="card-text">
-                Office MSK<br>
-                Office SPB
+                ОФИС МСК<br>
+                ОФИС СПБ
             </p>
         </div>
     </div>
@@ -14,14 +13,15 @@
 <div class="col-md-4">
     <div class="card mb-4 box-shadow">
         <div class="card-body">
-            <h2>Naposhite nam</h2>
+            <h2>Напишите нам</h2>
             <form method="post">
                 {% csrf_token %}
                 <input class="form-control mb-2" name="name"/>
                 <input class="form-control mb-2" name="email"/>
                 <textarea class="form-control mb-2" name="message"></textarea>
-                <button type="submit" class="btn btn-primary form-control">Optravit</button>
+                <button type="submit" class=" mb-2 btn btn-primary form-control">Отправить</button>
             </form>
+
         </div>
     </div>
 </div>

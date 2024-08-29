@@ -17,3 +17,4 @@ class Student(models.Model):
         verbose_name = 'student'
         verbose_name_plural = 'students'
         ordering = ('last_name',)
+

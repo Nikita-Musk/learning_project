@@ -25,6 +25,7 @@
                 <div class="col-sm-8 col-md-7 py-4">
                 </div>
                 {% include 'main/includes/inc_main_menu.html' %}
+
             </div>
         </div>
     </div>
@@ -50,9 +51,7 @@
 
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">{{title}}</h1>
-            <p class="lead text-muted"></p>
-
+            <h1 class="jumbotron-heading">{{ title }}</h1>
         </div>
     </section>
 
@@ -60,10 +59,8 @@
         <div class="container">
 
             <div class="row">
-
                 {% block content %}
                 {% endblock %}
-
             </div>
         </div>
     </div>
@@ -75,7 +72,7 @@
         <p class="float-right">
             <a href="#">Back to top</a>
         </p>
-        <p>&copy; 2023 - {% now 'Y'%}</p>
+        <p>&copy; 2024 - {% now 'Y' %}</p>
     </div>
 </footer>
 
@@ -86,8 +83,8 @@
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-<script src=".{% static 'js/popper.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}}"></script>
-<script src=".{% static 'js/holder.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/holder.min.js' %}"></script>
 </body>
 </html>

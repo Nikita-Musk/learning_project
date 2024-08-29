@@ -1,9 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy,reverse
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from main.models import Student
 
 
 # Create your views here.
+
+
+class StudentListView(ListView):
+    model = Student
 
 
 def contact(request):
@@ -18,11 +24,31 @@ def contact(request):
     }
     return render(request, 'main/contact.html', context)
 
+class StudentCreateView(CreateView):
+    model = Student
+    fields = ['first_name', 'last_name', 'avatar']
+    success_url = reverse_lazy('main:index')
 
-def index(request):
-    students_list = Student.objects.all()
-    context = {
-        'object_list': students_list,
-        'title': 'Glavnaya'
-    }
-    return render(request, 'main/index.html', context)
+class StudentDetailView(DetailView):
+    model = Student
+
+class StudentUpdateView(UpdateView):
+    model = Student
+    fields = ['first_name', 'last_name', 'avatar']
+    success_url = reverse_lazy('main:index')
+
+class StudentDeleteView(DeleteView):
+    model = Student
+    success_url = reverse_lazy('main:index')
+
+
+def toggle_activity(request, pk):
+    student_item = get_object_or_404(Student, pk=pk)
+    if student_item.is_active:
+        student_item.is_active = False
+    else:
+        student_item.is_active = True
+
+    student_item.save()
+
+    return redirect(reverse('main:index'))

@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% block content %}
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <p class="card-text">Имя:{{ object.first_name }}</p>
+                            <p class="card-text">Фамилия: {{ object.last_name }}</p>
+                            <p class="card-text">Статус: {{ object.is_active }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a class="btn btn-primary" href="{% url 'main:index' %}" role="button">nazad</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="/media/{{ object.avatar }}" style="object-fit: cover; width: 100%; height: 50%"/>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
